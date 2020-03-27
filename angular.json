@@ -24,7 +24,10 @@
 						"main": "src/main.ts",
 						"outputPath": "dist/browser",
 						"polyfills": "src/polyfills.ts",
-						"styles": ["src/scss/index.scss"],
+						"styles": [
+							"./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
+							"src/scss/index.scss"
+						],
 						"scripts": [],
 						"tsConfig": "src/tsconfig.app.json"
 					},
@@ -96,7 +99,10 @@
 						"karmaConfig": "src/karma.conf.js",
 						"main": "src/test.ts",
 						"polyfills": "src/polyfills.ts",
-						"styles": ["src/scss/index.scss"],
+						"styles": [
+							"./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
+							"src/scss/index.scss"
+						],
 						"scripts": [],
 						"tsConfig": "src/tsconfig.spec.json"
 					}

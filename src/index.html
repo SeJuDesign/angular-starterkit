@@ -13,10 +13,10 @@
 			content="
 				connect-src https://localhost:4000 'self';
 				default-src 'self';
-				font-src 'self';
-				img-src 'self' https://images.unsplash.com data: https://www.google-analytics.com;
+				font-src 'self' https://fonts.gstatic.com;
+				img-src 'self' https://images.unsplash.com data: https://material.angular.io https://www.google-analytics.com;
 				script-src 'self' https://www.google-analytics.com 'unsafe-inline';
-				style-src 'self' 'unsafe-inline';
+				style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
 			"
 		/>
 		<base href="/" />
@@ -125,8 +125,16 @@
 		<meta http-equiv="pragma" content="no-cache" />
 
 		<link rel="manifest" href="manifest.json" />
+		<link
+			href="https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap"
+			rel="stylesheet"
+		/>
+		<link
+			href="https://fonts.googleapis.com/icon?family=Material+Icons"
+			rel="stylesheet"
+		/>
 	</head>
-	<body>
+	<body class="mat-typography">
 		<noscript
 			>Please enable JavaScript to continue using this
 			application.</noscript

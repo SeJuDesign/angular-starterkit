@@ -10,6 +10,7 @@ import {
 	BrowserTransferStateModule,
 	ɵgetDOM,
 } from '@angular/platform-browser';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { routerReducer } from '@ngrx/router-store';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
@@ -107,6 +108,7 @@ export function getMetaReducers(
 				useFactory: createTranslateLoader,
 			},
 		}),
+		NoopAnimationsModule,
 	],
 	providers: [
 		{
