@@ -11,4 +11,4 @@ routesWithLanguages.push('/en/404');
 /**
  * Should declare all Route URLs in an Array
  */
-export const ROUTES = routesWithLanguages as Array<string>;
+export const ROUTES = routesWithLanguages as string[];

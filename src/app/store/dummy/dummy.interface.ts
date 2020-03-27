@@ -4,33 +4,25 @@ export interface DummyInterface {
 	 */
 	address: AddressInterface;
 	/**
-	 * currency represents the currency code used for DummyInterface
-	 */
-	currency: string;
-	/**
 	 * email represents the email used for DummyInterface
 	 */
 	email: string;
 	/**
-	 * image will be a dummy image given by an unsplash URI
+	 * firstName represents the name for DummyInterface
 	 */
-	image: string;
-	/**
-	 * language will determine the default language
-	 */
-	language: string;
-	/**
-	 * name represents the name for DummyInterface
-	 */
-	name: string;
+	firstName: string;
 	/**
 	 * phone is a default phone number
 	 */
 	phone: string;
 	/**
-	 * website represents the URI used for DummyInterface
+	 * surName represents the name for DummyInterface
 	 */
-	website: string;
+	surName: string;
+	/**
+	 * username represents the name for DummyInterface
+	 */
+	username: string;
 }
 
 export interface AddressInterface {

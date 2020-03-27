@@ -5,21 +5,17 @@ export const selectFeature = createFeatureSelector<DummyState>('dummyState');
 
 export const selectEntity = createSelector(
 	selectFeature,
-	state => state.entity,
+	(state) => state.entity,
 );
 
-export const selectEntityCurrency = createSelector(
+export const selectName = createSelector(
 	selectEntity,
-	state => state.currency,
+	(state) => `${state.firstName} ${state.surName}`,
 );
 
-export const selectName = createSelector(selectEntity, state => state.name);
+export const selectEmail = createSelector(selectEntity, (state) => state.email);
 
-export const selectImage = createSelector(selectEntity, state => state.image);
-
-export const selectEmail = createSelector(selectEntity, state => state.email);
-
-export const selectAddress = createSelector(selectEntity, state => {
+export const selectAddress = createSelector(selectEntity, (state) => {
 	if (state.address) {
 		return {
 			city: state.address.city,
@@ -32,15 +28,15 @@ export const selectAddress = createSelector(selectEntity, state => {
 
 export const selectIsLoading = createSelector(
 	selectFeature,
-	state => state.isLoading,
+	(state) => state.isLoading,
 );
 
 export const selectIsLoadingSuccessfully = createSelector(
 	selectFeature,
-	state => state.isLoaded,
+	(state) => state.isLoaded,
 );
 
 export const selectError = createSelector(
 	selectFeature,
-	state => state.errorMessage,
+	(state) => state.errorMessage,
 );

@@ -7,7 +7,7 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { StoreModule } from '@ngrx/store';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 
-import { createTranslateLoader } from '@app/app.module';
+import { createTranslateLoader } from 'app/app.module';
 import { ErrorPageComponent as Component } from './error-page.component';
 
 const errorRoutes: Routes = [

@@ -33,6 +33,19 @@ export const LoadSuccess = createAction(
 );
 
 /**
+ * Update Action will be used for NGRX Action emitter, when the user interacts with the application
+ */
+export const Update = createAction(
+	'[DUMMY] UPDATE',
+	props<{
+		/**
+		 * entity represents the DummyInterface used for the reducer
+		 */
+		entity: DummyInterface;
+	}>(),
+);
+
+/**
  * ClearError Action will be used for NGRX Action emitter, when the error needs to be cleared
  */
 export const ClearError = createAction('[DUMMY] CLEAR ERROR');

@@ -24,20 +24,17 @@ export interface DummyState {
 export const initialState: DummyState = {
 	entity: {
 		address: {
-			city: 'Rijnsburg',
-			street: 'Rembrandtsingel',
-			streetNumber: '5',
+			city: '',
+			street: '',
+			streetNumber: '',
 			streetNumberAddition: '',
-			zipcode: '2231 BK',
+			zipcode: '',
 		},
-		currency: 'EUR',
-		email: 'dummy@domain.com',
-		image:
-			'https://images.unsplash.com/photo-1548092372-0d1bd40894a3?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjEyMDk3fQ',
-		language: 'en',
-		name: 'Dummys & Downies',
-		phone: null,
-		website: '/',
+		email: '',
+		firstName: '',
+		phone: '',
+		surName: '',
+		username: '',
 	},
 	errorMessage: null,
 	isLoaded: false,
@@ -46,7 +43,7 @@ export const initialState: DummyState = {
 
 const createDummyReducer = createReducer(
 	initialState,
-	on(dummyActions.Load, state => ({
+	on(dummyActions.Load, (state) => ({
 		...state,
 		errorMessage: null,
 		isLoading: true,
@@ -57,13 +54,13 @@ const createDummyReducer = createReducer(
 		isLoaded: false,
 		isLoading: false,
 	})),
-	on(dummyActions.LoadSuccess, (state, action) => ({
+	on(dummyActions.Update, dummyActions.LoadSuccess, (state, action) => ({
 		...state,
 		entity: action.entity,
 		isLoaded: true,
 		isLoading: false,
 	})),
-	on(dummyActions.ClearError, state => ({
+	on(dummyActions.ClearError, (state) => ({
 		...state,
 		errorMessage: null,
 	})),

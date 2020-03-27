@@ -2,36 +2,24 @@ import { initialState as mockStore } from '@testing/mock-store';
 import * as fromdummy from './dummy.selectors';
 
 describe('Selectors: dummy selector', () => {
-	it('should return dummyEntity', () => {
-		expect(fromdummy.selectEntity(mockStore)).toBe(
-			mockStore.dummyState.entity,
-		);
-	});
+	const { entity } = mockStore.dummyState;
 
-	it('should return dummy Currency', () => {
-		expect(fromdummy.selectEntityCurrency(mockStore)).toBe('EUR');
+	it('should return dummyEntity', () => {
+		expect(fromdummy.selectEntity(mockStore)).toBe(entity);
 	});
 
 	it('should return dummy name', () => {
 		expect(fromdummy.selectName(mockStore)).toBe(
-			mockStore.dummyState.entity.name,
-		);
-	});
-
-	it('should return dummy image', () => {
-		expect(fromdummy.selectImage(mockStore)).toBe(
-			mockStore.dummyState.entity.image,
+			`${entity.firstName} ${entity.surName}`,
 		);
 	});
 
 	it('should return dummy email', () => {
-		expect(fromdummy.selectEmail(mockStore)).toBe(
-			mockStore.dummyState.entity.email,
-		);
+		expect(fromdummy.selectEmail(mockStore)).toBe(entity.email);
 	});
 
 	it('should return dummy address', () => {
-		const { address } = mockStore.dummyState.entity;
+		const { address } = entity;
 		expect(fromdummy.selectAddress(mockStore)).toEqual({
 			city: address.city,
 			street: `${address.street} ${address.streetNumber}${address.streetNumberAddition}`,
@@ -44,16 +32,8 @@ describe('Selectors: dummy selector', () => {
 			...mockStore,
 			dummyState: {
 				entity: {
+					...mockStore.dummyState.entity,
 					address: null,
-					currency: 'EUR',
-					email: 'test@domain.com',
-					image:
-						'https://localhost:4000/assets/images/dummy-test/dummy-test.jpg',
-					language: 'en',
-					name: 'dummys & downies',
-					phone: '0612345678',
-					website: '/',
-					zipcode: '2202 CA',
 				},
 				error: null,
 				isLoaded: true,

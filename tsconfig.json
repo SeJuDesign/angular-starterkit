@@ -15,6 +15,7 @@
 		"outDir": "./dist",
 		"paths": {
 			"@app/*": ["app/*"],
+			"app": ["app"],
 			"@assets/*": ["assets/*"],
 			"assets": ["assets"],
 			"@components/*": ["app/components/*"],

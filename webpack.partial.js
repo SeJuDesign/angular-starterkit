@@ -15,10 +15,10 @@ module.exports = {
 			fix: true,
 		}),
 	],
-	stats: 'minimal',
 };
 
 if (ENV === 'build') {
+	module.exports.stats = 'errors-only';
 	module.exports.plugins.push(
 		new PurgecssPlugin({
 			paths: glob.sync(`${PATHS.src}/**/*`, { nodir: true }),

@@ -39,7 +39,7 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule, GoogleAnalyticsEffects } from 'routes';
 
 // Modules
-import { ErrorModule } from '@modules/error.module';
+import { ErrorModule } from '@pages/error/error.module';
 
 // Interceptor
 import { AppHttpInterceptor } from './interceptors/http.interceptor';
@@ -85,7 +85,16 @@ export function getMetaReducers(
 				applicationState: fromApplication.Applicationreducer,
 				routerState: routerReducer,
 			},
-			{ initialState: getInitialState },
+			{
+				initialState: getInitialState,
+				runtimeChecks: {
+					strictActionImmutability: true,
+					strictActionSerializability: true,
+					strictActionWithinNgZone: true,
+					strictStateImmutability: true,
+					strictStateSerializability: true,
+				},
+			},
 		),
 		StoreDevtoolsModule.instrument(),
 		ServiceWorkerModule.register('ngsw-worker.js', {
@@ -119,7 +128,7 @@ export function getMetaReducers(
 			deps: [DOCUMENT, PLATFORM_ID],
 			multi: true,
 			provide: APP_INITIALIZER,
-			useFactory: /* istanbul ignore next */ function(
+			useFactory: /* istanbul ignore next */ function (
 				document: HTMLDocument,
 				platformId: Object,
 			): Function {
@@ -129,7 +138,7 @@ export function getMetaReducers(
 						const styles: any[] = Array.prototype.slice.apply(
 							dom.querySelectorAll(`style[ng-transition]`),
 						);
-						styles.forEach(el => {
+						styles.forEach((el) => {
 							// Remove ng-transition attribute to prevent Angular appInitializerFactory
 							// to remove server styles before preboot complete
 							el.removeAttribute('ng-transition');
@@ -137,7 +146,7 @@ export function getMetaReducers(
 						document.addEventListener('PrebootComplete', () => {
 							// After preboot complete, remove the server scripts
 							setTimeout(() =>
-								styles.forEach(el => dom.removeChild(el)),
+								styles.forEach((el) => dom.removeChild(el)),
 							);
 						});
 					}

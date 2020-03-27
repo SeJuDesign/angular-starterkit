@@ -6,10 +6,8 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { StoreModule } from '@ngrx/store';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 
-// import { createTranslateLoader } from '@app/app.module';
+import { TranslateUniversalService } from 'app/app.server.module';
 import { HomePageComponent as Component } from './home-page.component';
-
-import { TranslateUniversalService } from '@app/app.server.module';
 
 describe('Pages: Home page', () => {
 	let fixture: ComponentFixture<Component>;

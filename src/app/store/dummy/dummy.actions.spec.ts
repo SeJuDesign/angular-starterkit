@@ -32,6 +32,18 @@ describe('Actions: Dummy Actions', () => {
 		});
 	});
 
+	it('should create an action LoadSuccess', () => {
+		const payload = {
+			entity: mockStore.dummyState.entity,
+		};
+		const action = dummyActions.Update(payload);
+
+		expect({ ...action }).toEqual({
+			entity: payload.entity,
+			type: '[DUMMY] UPDATE',
+		});
+	});
+
 	it('should create an action ClearError', () => {
 		const action = dummyActions.ClearError();
 

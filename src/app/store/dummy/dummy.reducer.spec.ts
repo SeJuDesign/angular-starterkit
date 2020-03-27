@@ -35,24 +35,22 @@ describe('Reducers: Dummy reducer', () => {
 		const state = Dummyreducer(initialState, action);
 		const {
 			address,
-			name,
+			firstName,
 			email,
-			image,
-			language,
+			surName,
 			phone,
-			website,
+			username,
 		} = mockStore.dummyState.entity;
 
 		expect(state.errorMessage).toEqual(null);
 		expect(state.isLoading).toEqual(false);
 		expect(state.isLoaded).toEqual(true);
 		expect(state.entity.address).toEqual(address);
-		expect(state.entity.name).toEqual(name);
 		expect(state.entity.email).toEqual(email);
-		expect(state.entity.image).toEqual(image);
-		expect(state.entity.language).toEqual(language);
+		expect(state.entity.firstName).toEqual(firstName);
+		expect(state.entity.surName).toEqual(surName);
 		expect(state.entity.phone).toEqual(phone);
-		expect(state.entity.website).toEqual(website);
+		expect(state.entity.username).toEqual(username);
 	});
 
 	it('should clear the error', () => {

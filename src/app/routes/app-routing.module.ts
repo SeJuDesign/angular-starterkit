@@ -46,8 +46,8 @@ const appRoutes: Routes = [
 				children: [
 					{
 						loadChildren: () =>
-							import('../modules/home.module').then(
-								m => m.HomeModule,
+							import('../pages/home/home.module').then(
+								(m) => m.HomeModule,
 							),
 						path: '',
 						pathMatch: 'full',
